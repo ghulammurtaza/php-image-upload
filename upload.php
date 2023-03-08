@@ -30,8 +30,8 @@ if (!isset($_FILES['image']) || !in_array(pathinfo($_FILES['image']['name'], PAT
 
 // Get the image file and upload it to a folder
 $imageFile = $_FILES['image']['tmp_name'];
-$uploadDir = './images';
-$uploadPath = $uploadDir . basename($_FILES['image']['name']);
+$uploadDir = dirname(__FILE__) . '/images/';
+$uploadPath = $uploadDir . time() . basename($_FILES['image']['name']);
 
 if (!move_uploaded_file($imageFile, $uploadPath)) {
     header('HTTP/1.1 500 Internal Server Error');

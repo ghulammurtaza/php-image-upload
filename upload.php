@@ -6,7 +6,7 @@ $allowed_types = array('jpg', 'jpeg', 'png', 'gif', 'pdf');
 $headers = getallheaders();
 
 // Check if the API key is valid
-if (!isset($headers['API_KEY']) || $headers['API_KEY'] !== $apiKey) {
+if (!isset($headers['X_API_KEY']) || $headers['X_API_KEY'] !== $apiKey) {
     header('HTTP/1.1 401 Unauthorized');
     exit('Unauthorized');
 }
